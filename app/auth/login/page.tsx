@@ -17,10 +17,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 
-export default function Page({
-	className,
-	...props
-}: React.ComponentPropsWithoutRef<"div">) {
+export default function Page() {
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
 	const [error, setError] = useState<string | null>(null);
@@ -40,7 +37,6 @@ export default function Page({
 			});
 			if (error) throw error;
 
-			// Update this route to redirect to an authenticated route. The user already has an active session.
 			router.push("/protected");
 		} catch (error: unknown) {
 			setError(error instanceof Error ? error.message : "An error occurred");
@@ -56,7 +52,7 @@ export default function Page({
 
 			{/* login form */}
 			<div className="relative z-2010 top-0 w-full max-w-md flex items-center justify-center mx-4">
-				<div className={cn("flex flex-col gap-6 w-full", className)} {...props}>
+				<div className="flex flex-col gap-6 w-full">
 					<Card className="bg-gradient-to-r from-[#E0EAFC] to-[#CFDEF3]">
 						<CardHeader>
 							<CardTitle className="text-2xl">Login</CardTitle>
@@ -105,15 +101,6 @@ export default function Page({
 										{isLoading ? "Logging in..." : "Login"}
 									</Button>
 								</div>
-								{/* <div className="mt-4 text-center text-sm">
-									Don&apos;t have an account?{" "}
-									<button
-										onClick={switchtosignUp}
-										className="underline underline-offset-4 hover:shadow-xl hover:shadow-black/60 hover:rotate-1 hover:scale-110 transform transition-all duration-150 cursor-pointer"
-									>
-										Sign up
-									</button>
-								</div> */}
 							</form>
 						</CardContent>
 					</Card>
