@@ -2,10 +2,10 @@ import React from "react";
 import Main from "../ui/Main";
 import Section from "../ui/Section";
 import H2 from "../ui/H2";
-import { reviewData } from "@/comstants/data/reviews";
 import ReviewCard from "../helper/ReviewCard";
 import { Button } from "../ui/Button";
 import Grid from "../ui/Grid";
+import { reviewData } from "@/data/reviewData";
 
 const Review = () => {
 	return (
