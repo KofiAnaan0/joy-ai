@@ -1,14 +1,14 @@
 "use client";
 
 import { servicesData } from "@/constants/constant";
-import { Services } from "@/types/serviceType";
+import { ServiceProps } from "@/types/serviceType";
 import React, { useCallback, useState } from "react";
 
 interface UseServicesReturn {
 	loading: boolean;
 	error: string | null;
 	bookDemo: (serviceId: string) => Promise<void>;
-	services: Services[];
+	services: ServiceProps[];
 }
 
 const useServices = (): UseServicesReturn => {
